@@ -5,9 +5,27 @@ namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        public Form1()
+
+        public Form1(string User)
         {
             InitializeComponent();
+            if (User.Contains("Sales"))
+            {
+                OrdersRB.Enabled = true;
+                CustomersRB.Enabled = true;
+            }
+            else if(User.Contains("HR"))
+            {
+                EmployeeRB.Enabled = true;
+
+            }
+            else if (User.Contains("CEO"))
+            {
+                OrdersRB.Enabled = true;
+                CustomersRB.Enabled = true;
+                EmployeeRB.Enabled = true;
+
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,13 +43,37 @@ namespace WinFormsApp1
                 try
                 {
                     con.Open();
-                    using (var command = new SqlCommand("SELECT * FROM Customers", con))
+                    if (OrdersRB.Checked)
                     {
-                        using (var da = new SqlDataAdapter(command))
+                        using (var command = new SqlCommand("SELECT * FROM Orders", con))
                         {
-                            da.Fill(dt);
+                            using (var da = new SqlDataAdapter(command))
+                            {
+                                da.Fill(dt);
+                            }
                         }
                     }
+                    if (CustomersRB.Checked)
+                    {
+                        using (var command = new SqlCommand("SELECT * FROM Customers", con))
+                        {
+                            using (var da = new SqlDataAdapter(command))
+                            {
+                                da.Fill(dt);
+                            }
+                        }
+                    }
+                    if (EmployeeRB.Checked)
+                    {
+                        using (var command = new SqlCommand("SELECT * FROM Employees", con))
+                        {
+                            using (var da = new SqlDataAdapter(command))
+                            {
+                                da.Fill(dt);
+                            }
+                        }
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -56,7 +98,7 @@ namespace WinFormsApp1
                 try
                 {
                     con.Open();
-                    using (var command = new SqlCommand("SELECT count(*) FROM Customers", con))
+                    using (var command = new SqlCommand("", con))
                     {
                         using (var da = new SqlDataAdapter(command))
                         {
@@ -71,6 +113,11 @@ namespace WinFormsApp1
             }
 
             dataGridView1.DataSource = dt;
+        }
+
+        private void EmployeesChBx_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

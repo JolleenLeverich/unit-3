@@ -32,6 +32,9 @@
             button2 = new Button();
             dataGridView1 = new DataGridView();
             g = new Label();
+            EmployeeRB = new RadioButton();
+            CustomersRB = new RadioButton();
+            OrdersRB = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -81,11 +84,50 @@
             g.TabIndex = 3;
             g.Text = "Northwind Database";
             // 
+            // EmployeeRB
+            // 
+            EmployeeRB.AutoSize = true;
+            EmployeeRB.Enabled = false;
+            EmployeeRB.Location = new Point(186, 176);
+            EmployeeRB.Name = "EmployeeRB";
+            EmployeeRB.Size = new Size(77, 19);
+            EmployeeRB.TabIndex = 8;
+            EmployeeRB.TabStop = true;
+            EmployeeRB.Text = "Employee";
+            EmployeeRB.UseVisualStyleBackColor = true;
+            // 
+            // CustomersRB
+            // 
+            CustomersRB.AutoSize = true;
+            CustomersRB.Enabled = false;
+            CustomersRB.Location = new Point(311, 176);
+            CustomersRB.Name = "CustomersRB";
+            CustomersRB.Size = new Size(82, 19);
+            CustomersRB.TabIndex = 9;
+            CustomersRB.TabStop = true;
+            CustomersRB.Text = "Customers";
+            CustomersRB.UseVisualStyleBackColor = true;
+            // 
+            // OrdersRB
+            // 
+            OrdersRB.AutoSize = true;
+            OrdersRB.Enabled = false;
+            OrdersRB.Location = new Point(440, 176);
+            OrdersRB.Name = "OrdersRB";
+            OrdersRB.Size = new Size(60, 19);
+            OrdersRB.TabIndex = 10;
+            OrdersRB.TabStop = true;
+            OrdersRB.Text = "Orders";
+            OrdersRB.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(OrdersRB);
+            Controls.Add(CustomersRB);
+            Controls.Add(EmployeeRB);
             Controls.Add(g);
             Controls.Add(dataGridView1);
             Controls.Add(button2);
@@ -103,5 +145,9 @@
         private Button button2;
         private DataGridView dataGridView1;
         private Label g;
+        private RadioButton radioButton1;
+        private RadioButton EmployeeRB;
+        private RadioButton CustomersRB;
+        private RadioButton OrdersRB;
     }
 }
